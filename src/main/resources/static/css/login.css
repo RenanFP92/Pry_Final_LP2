@@ -1,0 +1,65 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #e4eaf1 100%);
+    /* Opcional: sutil patrón de puntos superpuestos usando CSS gradients */
+    background-image:
+        repeating-radial-gradient(circle at 0 0, #ececec 1px, transparent 20px),
+        repeating-radial-gradient(circle at 100% 100%, #ececec 1px, transparent 20px),
+        linear-gradient(135deg, #f8fafc 0%, #e4eaf1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box-login {
+    width: 100%;
+    max-width: 400px;
+}
+.card {
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 32px 0 rgba(31, 38, 135, 0.15);
+    overflow: hidden;
+}
+.card-header {
+    border-radius: 1.5rem 1.5rem 0 0 !important;
+    background: linear-gradient(90deg, #0a2240 0%, #000000 100%);
+    letter-spacing: 1px;
+    color: #fff;
+    padding-top: 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: none;
+    text-align: center;
+}
+.card-header h3 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin-bottom: 0;
+}
+.input-group-text {
+    background: #e9ecef;
+    border: none;
+}
+.form-control:focus {
+    border-color: #0a2240;
+    box-shadow: 0 0 0 2px #0a22405e;
+}
+.btn-dark {
+    background: linear-gradient(90deg, #0a2240 0%, #000000 80%);
+    border: none;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 14px rgba(31,38,135,0.08);
+    transition: background 0.3s;
+}
+.btn-dark:hover {
+    background: linear-gradient(90deg, #000000 0%, #0a2240 100%);
+}
+.card-footer {
+    border-radius: 0 0 1.5rem 1.5rem;
+    background: none;
+    font-size: 0.9rem;
+}
+@media (max-width: 500px) {
+    .box-login { max-width: 95vw; }
+}

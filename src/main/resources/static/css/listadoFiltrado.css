@@ -1,0 +1,26 @@
+.col-codigo {
+    width: 6% !important;
+}
+
+.col-precio {
+    width: 18% !important;
+    min-width: 120px;
+}
+
+.col-fecha {
+    text-align: center !important;
+    width: 37% !important;
+}
+
+@media (max-width: 991px) {
+    .col-codigo {
+        font-size: 0.95em;
+    }
+    .col-precio {
+        min-width: 100px;
+        font-size: 0.95em;
+    }
+    .col-fecha {
+        font-size: 0.95em;
+    }
+}

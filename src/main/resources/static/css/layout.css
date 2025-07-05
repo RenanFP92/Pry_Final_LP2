@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins&display=swap');
+
+* {
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: #FFF9EC;
+	background-image: url('/imagenes/bodega2.png');
+	/* ajusta con tu imagen */
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	min-height: 100vh;
+}
+
+.header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	z-index: 10;
+}
+
+.btn-menu label {
+	color: #fff;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+input#btn-menu {
+	display: none;
+}
+
+.container-menu {
+	position: fixed;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	transition: all 0.4s ease;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 9;
+}
+
+#btn-menu:checked~.container-menu {
+	opacity: 1;
+	visibility: visible;
+}
+
+.cont-menu {
+	width: 100%;
+	max-width: 250px;
+	background: #1c1c1c;
+	height: 100vh;
+	position: fixed;
+	transition: all 0.4s ease;
+	transform: translateX(-100%);
+}
+
+#btn-menu:checked~.container-menu .cont-menu {
+	transform: translateX(0);
+}
+
+.cont-menu nav {
+	padding-top: 60px;
+}
+
+.cont-menu nav a {
+	display: block;
+	padding: 15px 20px;
+	color: #c7c7c7;
+	text-decoration: none;
+	border-left: 5px solid transparent;
+	transition: all 0.3s ease;
+	font-size: 15px;
+}
+
+.cont-menu nav a:hover {
+	background: #2a2a2a;
+	border-left: 5px solid #c7c7c7;
+}
+
+.cont-menu label {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+/* Botones principales */
+button, .btn {
+	background-color: #FF6B00;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+button:hover, .btn:hover {
+	background-color: #e65c00;
+}
+
+.logo-text {
+  color: #FF6B00;
+  font-weight: 700;
+  font-size: 32px; /* antes 22px */
+  font-family: 'Poppins', sans-serif;
+  line-height: 1;
+}
+
+.logo-accent {
+  color: #00A896;
+}
+
+.logo-icon {
+  color: #FF6B00;
+  font-size: 34px; /* antes 24px */
+  margin-top: 2px;
+}
+
+/* Para home */
+
+/* Título principal */
+.Título h2 {
+    font-weight: bold;
+}
+
+.Logo {
+    font-size: 34px;
+    color: #ff7f00; /* Naranja que combina con el logo */
+    margin-right: 10px;
+}
+
+/* Descripción general y de cuadros */
+.Descripción {
+    font-size: 1.1rem;
+    padding: 0 15px;
+    margin-bottom: 1rem;
+}
+
+/* Cuadro del título (MiniCuadro) */
+.MiniCuadro {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* Cuadro principal (CuadroGrande) */
+.CuadroGrande {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 50px 25px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Botón */
+.Botones {
+    background-color: #000000;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.Botones:hover {
+    background-color: #333333;
+}
+
+/* Colores personalizados para los MiniCuadros */
+.bg-inventario {
+    background-color: #28a745; /* Verde suave */
+}
+
+.bg-venta {
+    background-color: #007bff; /* Azul suave */
+}
+
+
+
+
+

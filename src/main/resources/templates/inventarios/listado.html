@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layoutBase(~{::contenido})">
+<head>
+    <link rel="stylesheet" th:href="@{/css/listadoFiltrado.css}" />
+</head>
+<div th:fragment="contenido">
+    <div class="row mb-3 align-items-center">
+        <div class="col-md-10">
+            <h1 class="m-0">Listado de inventarios con filtros</h1>
+        </div>
+        <div class="col-md-2">
+            <a th:href="@{/inventarios/nuevo}" class="btn btn-success w-100">
+                <i class="fa-solid fa-plus"></i>
+                Nuevo
+            </a>
+        </div>
+    </div>
+    <!-- Formulario de filtro -->
+    <form method="get" th:action="@{/inventarios/filtrado}" th:object="${filtro}">
+        <div class="row mb-3">
+            <div class="col-md-2">
+                <label for="tipoProducto">Tipo de Producto</label>
+                <select class="form-select" th:field="*{idTipoProducto}" onchange="this.form.submit()">
+                    <option value="">-- Todos --</option>
+                    <option th:each="item : ${tipoProducto}" th:value="${item.idTipoProducto}" th:text="${item.nombreTipo}">
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="proveedor">Proveedor</label>
+                <select class="form-select" th:field="*{idProveedor}" onchange="this.form.submit()">
+                    <option value="">-- Todos --</option>
+                    <option th:each="item : ${proveedores}" th:value="${item.idProveedor}" th:text="${item.nombreEmpresa}">
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+                <a th:href="@{/inventarios/filtrado}" class="btn btn-outline-secondary w-100">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    Limpiar
+                </a>
+            </div>
+        </div>
+    </form>
+    <!-- Tabla -->
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <table id="inventario" class="table table-hover table-striped table-borderless align-middle display">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th class="col-codigo">Código</th>
+                        <th class="col-fecha text-center">Fecha de Ingreso</th>
+                        <th class="col-producto">Producto</th>
+                        <th>Cantidad Ingresada</th>
+                        <th class="col-precio text-end">Precio</th>
+                        <th>Tipo Producto</th>
+                        <th>Estado</th>
+                        <th>Stock Maximo</th>
+                        <th>Stock Actual</th>
+                        <th class="col-proveedor">Proveedor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-secondary">
+                    <tr th:each="item, stat : ${lstInventario}">
+                        <td th:text="${item.idInventario}" class="col-codigo text-center"></td>
+                        <td th:text="${item.fechaIngreso}" class="col-fecha text-center"></td>
+                        <td th:text="${item.producto.nombreProducto}" class="col-producto"></td>
+                        <td th:text="${item.cantidadIngresada}" class="text-end"></td>
+                        <td th:text="|S/. ${#numbers.formatDecimal(item.precioCosto, 1, 2, 'POINT')}|"
+                            class="col-precio text-end"></td>
+                        <td th:text="${item.tipoProducto.nombreTipo}"></td>
+                        <td th:text="${item.producto.nomEstado}"
+                            class="text-center"
+                            th:classappend="${item.producto.estado} == 1 ? 'text-success' : 'text-danger'"></td>
+                        <td th:text="${item.producto.stockMaximo}"></td>
+                        <td th:text="${item.producto.stockActual}"></td>
+                        <td th:text="${item.proveedor.nombreEmpresa}" class="col-proveedor"></td>
+                        <td class="text-center align-middle">
+                            <a th:href="@{/inventarios/edicion/{id}(id=${item.idInventario})}"
+                                class="btn btn-outline-secondary btn-sm w-auto px-3"
+                                title="Editar"
+                                aria-label="Editar Inventario"
+                                role="button">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <th:block th:utext="${toast}"></th:block>
+    <script>
+        $(document).ready(function () {
+            $('#inventario').DataTable({
+                // Puedes ajustar "ordering" a true/false según tu preferencia
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/2.0.3/i18n/es-ES.json'
+                },
+                columnDefs: [
+                    { targets: 0, width: '7%' },    // Código
+                    { targets: 1, width: '23%', className: 'text-center' }, // Fecha de Ingreso
+                    { targets: 2, width: '15%' },   // Producto
+                    { targets: 4, width: '18%' },   // Precio
+                    { targets: 9, width: '13%' },   // Proveedor
+                    { targets: -1, width: '80px', orderable: false }, // Acciones
+                ]
+            });
+        });
+    </script>
+</div>
+</html>

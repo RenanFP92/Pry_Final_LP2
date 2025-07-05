@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layoutBase(~{::contenido})">
+
+<div th:fragment="contenido" class="text-center">
+
+    <!-- Título -->
+    <div class="Título">
+        <h2>Bienvenido a</h2>
+        <img th:src="@{/imagenes/logo2_LaBodegita.png}" alt="Logo La Bodeguita" style="max-height: 200px;" />
+    </div>
+
+    <!-- Descripción general -->
+    <p class="Descripción">
+        Somos una tienda dedicada a ofrecer productos de calidad para el hogar. Aquí podrás gestionar tu inventario y realizar ventas de forma rápida y sencilla.
+    </p>
+
+    <!-- Pregunta -->
+    <h4 class="mb-5">¿A dónde desea ir?</h4>
+
+    <!-- Opciones -->
+    <div class="row justify-content-center gap-5">
+        
+        <!-- Inventario -->
+        <div class="col-md-4 position-relative">
+            <div class="MiniCuadro bg-inventario text-white">INVENTARIO</div>
+            <div class="CuadroGrande">
+                <p class="Descripción">
+                    Administra tus productos, revisa el stock y mantén el control de tu almacén.
+                </p>
+                <a th:href="@{/inventarios/filtrado}" class="btn Botones">IR A INVENTARIO</a>
+            </div>
+        </div>
+
+        <!-- Venta -->
+        <div class="col-md-4 position-relative">
+            <div class="MiniCuadro bg-venta text-white">VENTA</div>
+            <div class="CuadroGrande">
+                <p class="Descripción">
+                    Registra tus ventas, genera boletas y lleva el control de salidas de productos.
+                </p>
+                <a th:href="@{/boletas/filtrado}" class="btn Botones">IR A VENTA</a>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:utext="${alert}"></th:block>
+</div>
+
+</html>
