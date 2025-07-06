@@ -27,17 +27,22 @@
 		<parameter name="pNumBol" class="java.lang.Integer"/>
 		<queryString language="SQL">
 			<![CDATA[select *
-from  pry_final_lp2.v_detail_boleta 
-where pry_final_lp2.v_detail_boleta.num_bol  = $P{pNumBol}]]>
+from  v_detail_boleta 
+where v_detail_boleta.num_bol  = $P{pNumBol}]]>
 		</queryString>
-		<field name="id_producto" class="java.lang.String">
-			<property name="com.jaspersoft.studio.field.name" value="id_prod"/>
-			<property name="com.jaspersoft.studio.field.label" value="id_prod"/>
+		<field name="num_bol" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="num_bol"/>
+			<property name="com.jaspersoft.studio.field.label" value="num_bol"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="v_detail_boleta"/>
+		</field>
+		<field name="id_producto" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="id_producto"/>
+			<property name="com.jaspersoft.studio.field.label" value="id_producto"/>
 			<property name="com.jaspersoft.studio.field.tree.path" value="v_detail_boleta"/>
 		</field>
 		<field name="nombre_producto" class="java.lang.String">
-			<property name="com.jaspersoft.studio.field.name" value="des_prod"/>
-			<property name="com.jaspersoft.studio.field.label" value="des_prod"/>
+			<property name="com.jaspersoft.studio.field.name" value="nombre_producto"/>
+			<property name="com.jaspersoft.studio.field.label" value="nombre_producto"/>
 			<property name="com.jaspersoft.studio.field.tree.path" value="v_detail_boleta"/>
 		</field>
 		<field name="cantidad" class="java.lang.Integer">
@@ -62,8 +67,8 @@ where pry_final_lp2.v_detail_boleta.num_bol  = $P{pNumBol}]]>
 	<parameter name="pNumBol" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[select *
-from pry_final_lp2.v_header_boleta 
-where  pry_final_lp2.v_header_boleta.num_bol  = $P{pNumBol}]]>
+from v_header_boleta 
+where  v_header_boleta.num_bol  = $P{pNumBol}]]>
 	</queryString>
 	<field name="num_bol" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="num_bol"/>
@@ -95,7 +100,7 @@ where  pry_final_lp2.v_header_boleta.num_bol  = $P{pNumBol}]]>
 		</band>
 	</background>
 	<title>
-		<band height="86" splitType="Stretch">
+		<band height="99" splitType="Stretch">
 			<staticText>
 				<reportElement x="280" y="10" width="275" height="20" uuid="8068951c-496b-4eee-a676-c77d59625728"/>
 				<box>
@@ -127,8 +132,8 @@ where  pry_final_lp2.v_header_boleta.num_bol  = $P{pNumBol}]]>
 				<textFieldExpression><![CDATA[$F{numBolText}]]></textFieldExpression>
 			</textField>
 			<image scaleImage="FillFrame">
-				<reportElement mode="Transparent" x="50" y="0" width="169" height="80" uuid="7abddc8b-b793-482b-b619-52614e900de2"/>
-				<imageExpression><![CDATA["https://i.postimg.cc/TPkNDhnH/Logo-Bodeguita.png"]]></imageExpression>
+				<reportElement mode="Transparent" x="40" y="5" width="160" height="70" uuid="7abddc8b-b793-482b-b619-52614e900de2"/>
+				<imageExpression><![CDATA["https://i.postimg.cc/jdP7vvBJ/logo2-La-Bodegita.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -142,19 +147,18 @@ where  pry_final_lp2.v_header_boleta.num_bol  = $P{pNumBol}]]>
 				<text><![CDATA[Atendido por: ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="100" y="0" width="260" height="20" uuid="e31909d1-70e9-44e8-8769-210b90a54c7d"/>
-				<box topPadding="0" leftPadding="5" bottomPadding="0" rightPadding="0"/>
-				<textElement textAlignment="Left" verticalAlignment="Justified">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreCompletoUsuario}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="365" y="0" width="190" height="19" uuid="f4e45470-3277-4715-9ac7-5f6f02dbb59f"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaText}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="282" height="18" uuid="9fe0799f-dab5-4f25-ab9d-f9bfab53b3ef"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreCompletoUsuario}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
