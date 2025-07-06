@@ -47,28 +47,4 @@ public class ReportesController {
 		outputStream.close();
 
 	}
-
-//	@GetMapping("/productoGraficos")
-//	public void productoGraficosReporte(HttpServletResponse response) throws Exception {
-//		// Ruta del reporte (en resources/reportes)
-//		String reportPath = "/reportes/graficos.jrxml";
-//
-//		// Parámetros
-//		Map<String, Object> params = new HashMap<>();
-//
-//		// Get JasperPrint
-//		JasperPrint jasperPrint = reporteService.getJasperPrint(params, reportPath);
-//
-//		// Configuración de respuesta HTTP
-//		response.setContentType("application/pdf");
-//		response.setHeader("Content-Disposition", String.format("inline; filename=producto-graficos.pdf"));
-//
-//		// Exportar a PDF
-//		OutputStream outputStream = response.getOutputStream();
-//		JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
-//
-//		outputStream.flush();
-//		outputStream.close();
-//
-//	}
 }
