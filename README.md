@@ -83,3 +83,7 @@ https://cibertecedu-my.sharepoint.com/:w:/g/personal/i202332634_cibertec_edu_pe/
 *Biblioteca de datos
 
 https://cibertecedu-my.sharepoint.com/:x:/g/personal/i202332634_cibertec_edu_pe/EbrAAxdv4upCg4oEcKw72tEBedLzCNUR17bpPPWwOV9YJA?e=AMED4V
+
+*Presentación PPT del proyecto
+
+https://cibertecedu-my.sharepoint.com/:p:/g/personal/i202332634_cibertec_edu_pe/ESQUZ_ZXdm9Jkn_7yS-_018BxicIzZVOLFNyyQPzccHYWA?e=1a9jP5
